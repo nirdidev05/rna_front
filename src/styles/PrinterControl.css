@@ -1,0 +1,23 @@
+/* src/styles/MAP.css */
+.leaflet-control-custom {
+    background-color: white;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.leaflet-control-custom .printer-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.leaflet-control-custom .printer-icon .fa-icon {
+    font-size: 18px;
+    color: #333;
+}

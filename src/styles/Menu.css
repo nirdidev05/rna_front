@@ -1,0 +1,89 @@
+/* Main container for the app */
+.app-container {
+    display: flex;
+}
+
+/* Header bar styles */
+.header-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+}
+
+/* Logo styles */
+.logo {
+    height: 40px; /* Adjust size as needed */
+}
+
+/* Menu container styles */
+.menu-container {
+    width: 200px;
+    background-color: #29292D;
+    color: #d3d3d3;
+    font-family: Arial, sans-serif;
+    position: fixed;
+    top: 60px; /* Align with header height */
+    bottom: 0;
+    left: 0;
+    height: calc(100vh - 60px); /* Full height minus header height */
+    overflow-y: auto; /* Scroll if content overflows */
+}
+
+/* Menu header styles */
+.menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #333;
+    color: #fff;
+}
+
+/* Chevron icon styles */
+.chevron-icon {
+    margin-left: auto;
+}
+
+/* Menu list styles */
+.menu-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Menu item styles */
+.menu-list li {
+    padding: 10px;
+    border-bottom: 1px solid #444;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+/* Menu item hover styles */
+.menu-list li:hover {
+    color: #0404ae9c;
+}
+
+/* Icon styles within menu items */
+.menu-list li .menu-icon {
+    margin-right: 10px;
+}
+
+/* Links within menu items */
+.menu-list li a {
+    text-decoration: none;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.menu-list li a:hover {
+    color: #66D3D3;
+}

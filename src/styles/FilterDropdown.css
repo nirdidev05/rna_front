@@ -1,0 +1,18 @@
+/* src/styles/FilterDropdown.css */
+.filter-dropdown {
+    display: flex;
+    align-items: center;
+}
+
+.filter-dropdown label {
+    margin-right: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.filter-dropdown select {
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}

@@ -1,0 +1,114 @@
+/* src/styles/MAP.css */
+.map-page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.main-content {
+    display: flex;
+    flex: 1;
+    overflow: hidden; /* Ensure no scroll bars appear */
+}
+
+.menu-container {
+    width: 250px; /* Adjust to your menu width */
+    height: calc(100vh - 60px); /* Full height minus the header */
+    position: fixed;
+    left: 0;
+    top: 60px; /* Position below the header */
+    background-color: #f4f4f4;
+}
+
+.map-container {
+    flex: 7;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 60px); /* Full height minus the header */
+    margin-left:192px; /* Adjust to the width of the menu */
+    margin-top:52px;
+    width: calc(100% - 499px); /* Full width minus the width of the menu */
+
+}
+
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #66D3D3;
+    color: #fff;
+    height: 60px; /* Set height for the top bar */
+    z-index: 1000;
+}
+
+.nav-item {
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s, background-color 0.3s;
+    padding: 10px;
+}
+
+.nav-item:hover {
+    color: #004080;
+    background-color: #ffffff00;
+}
+
+.map-content {
+    flex: 1;
+    height: 100%; /* Ensure it takes up all available height */
+    width: 100%; /* Ensure it takes up all available width */
+    position: relative;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.print-dialog,
+.name-dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.dialog-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.dialog-content button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.dialog-content button:first-child {
+    background: #4CAF50;
+    color: #fff;
+}
+
+.dialog-content button:last-child {
+    background: #f44336;
+    color: #fff;
+}
+
+.name-dialog .dialog-content input {
+    margin: 10px;
+    padding: 10px;
+    width: 80%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}

@@ -1,0 +1,155 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+.liste-d-adresses-page {
+    display: flex;
+    flex-direction: column;
+    margin-left: 290px; /* Space for the menu */
+    padding: 20px;
+    min-height: 100vh; /* Ensure the page takes full height */
+    overflow-y: auto; /* Enable scrolling if content exceeds viewport height */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+.top-container {
+    display: flex;
+    align-items: flex-start; /* Align items to the start (left) */
+    margin-bottom: 20px; /* Space between top container and table */
+}
+
+.top-container2 {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-end; /* Align items to the end (right) */
+    margin-bottom: 20px; /* Space between top container and table */
+    margin-top: 20px;
+}
+
+.search-bar {
+    width: 450px; /* Fixed width for the search bar */
+    height: 70px; /* Fixed height for the search bar */
+    margin-bottom: 10px;
+    padding: 0 10px; /* Add some padding inside the search bar */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+.filter-dropdown {
+    width: 200px; /* Fixed width for the filter dropdown */
+    margin-bottom: 20px; /* Space below the dropdown */
+    padding: 0 10px; /* Add padding inside the dropdown */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-right: 20px;
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto; /* Horizontal scroll if the table is too wide */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+.add-address-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #66D3D3;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto; /* Center the button with space above and below */
+    z-index: 1; /* Ensure it appears above other content */
+}
+
+.add-address-btn:hover {
+    background-color: #4db6ac;
+}
+
+/* Address Card Styles */
+.address-card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 500px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card-content h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.card-content p {
+    margin: 0;
+    font-size: 1rem;
+    color: #555;
+}
+
+.close-card-btn {
+    align-self: center;
+    padding: 10px 20px;
+    background-color: #22334D;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.close-card-btn:hover {
+    background-color: #1a2639;
+}
+
+.card-image {
+    width: 100%;
+    max-width: 300px; /* Set a max width for the image */
+    height: 150px; /* Fixed height for the image container */
+    overflow: hidden;
+    margin: 0 auto 20px auto; /* Center the image and add bottom margin */
+    border-radius: 8px;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the container while maintaining aspect ratio */
+    border-radius: 8px;
+}
