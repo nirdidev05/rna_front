@@ -1,0 +1,17 @@
+.buttoner-container {
+    width: 100%;
+    text-align: center;
+    margin-top: auto; /* Pushes it to the bottom */
+    padding: 20px; /* Adjust as needed */
+    background-color: #29292D;
+}
+
+.enterprise-info {
+    padding: 10px;
+    background-color: #29292D;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(197, 91, 91, 0.1);
+    font-size: 14px;
+    color: #ffffff;
+    line-height: 1.6;
+}

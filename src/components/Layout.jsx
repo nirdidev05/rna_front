@@ -1,6 +1,7 @@
 import React from 'react';
-import Header from './header';
+import Header from '../components/header';
 import Menu from './Menu';
+import Buttoner from '../components/BUttoner'; // Import Buttoner
 import '../styles/Layout.css'; // Ensure you create this CSS file
 
 const Layout = ({ children }) => {
@@ -11,6 +12,7 @@ const Layout = ({ children }) => {
                 <Menu />
                 <div className="page-content">
                     {children}
+
                 </div>
             </div>
         </div>

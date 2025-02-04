@@ -2,13 +2,13 @@ import React, { useState, useContext, useMemo } from 'react';
 import Layout from '../components/Layout.jsx';
 import EtatCommuneSearchBar from '../components/SearchBar2.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import { faCheckCircle, faTimesCircle, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import { AddressContext } from '../contexts/EtatCommuneAdresse.js';
 import '../styles/Etat_Commune.css';
 
 const EtatCommunesPage = () => {
-    const { refusedAddressesData } = useContext(AddressContext);
+    const { refusedAddressesData, setRefusedAddressesData } = useContext(AddressContext);
     const [searchTerm, setSearchTerm] = useState('');
     const [filterType, setFilterType] = useState('numero');
     const [refusedAddresses, setRefusedAddresses] = useState([]);
@@ -37,6 +37,15 @@ const EtatCommunesPage = () => {
         setShowCard(false);
     };
 
+    const handleDelete = (numero) => {
+        const updatedData = refusedAddressesData.filter(row => row.numero !== numero);
+        setRefusedAddressesData(updatedData);
+    };
+
+    const handleEdit = (row) => {
+        navigate('/formulaire', { state: { address: row } });
+    };
+
     if (!refusedAddressesData) return <div>Loading...</div>;
 
     return (
@@ -56,6 +65,7 @@ const EtatCommunesPage = () => {
                             <th>Enregistrée</th>
                             <th>Refusée</th>
                             <th>Valide</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -80,6 +90,18 @@ const EtatCommunesPage = () => {
                                     {row.valide ? (
                                         <FontAwesomeIcon icon={faCheckCircle} className="icon-valide" />
                                     ) : '-'}
+                                </td>
+                                <td>
+                                    <FontAwesomeIcon 
+                                        icon={faEdit} 
+                                        className="icon-edit clickable" 
+                                        onClick={() => handleEdit(row)} 
+                                    />
+                                    <FontAwesomeIcon 
+                                        icon={faTrash} 
+                                        className="icon-delete clickable" 
+                                        onClick={() => handleDelete(row.numero)} 
+                                    />
                                 </td>
                             </tr>
                         ))}
@@ -107,4 +129,3 @@ const EtatCommunesPage = () => {
 };
 
 export default EtatCommunesPage;
-

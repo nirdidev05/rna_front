@@ -2,11 +2,11 @@ import React, { createContext, useState } from 'react';
 
 // Initial data
 const refusedAddressesData = [
-    { numero: '001', commune: 'Commune A', refuse: true, valide: false, refusees: [{ numero: '001', reason: 'Incorrect format' }] },
-    { numero: '002', commune: 'Commune A', refuse: true, valide: false, refusees: [{ numero: '002', reason: 'Incomplete address' }] },
-    { numero: '003', commune: 'Commune C', refuse: false, valide: true, refusees: [] },
-    { numero: '004', commune: 'Commune D', refuse: true, valide: false, refusees: [{ numero: '004', reason: 'Not found' }] },
-    { numero: '005', commune: 'Commune E', refuse: false, valide: true, refusees: [] },
+    { numero: '00AZE1', commune: 'Barika', refuse: true, valide: false, refusees: [{ numero: '001', reason: 'Incorrect format' }] },
+    { numero: 'EEDD3', commune: 'El marsa', refuse: true, valide: false, refusees: [{ numero: '002', reason: 'Incomplete address' }] },
+    { numero: '0CD390', commune: 'Annaba', refuse: false, valide: true, refusees: [] },
+    { numero: '1293B', commune: 'El Ayoune', refuse: true, valide: false, refusees: [{ numero: '004', reason: 'Not found' }] },
+    { numero: 'HGCV34', commune: 'Bouzina', refuse: false, valide: true, refusees: [] },
 ];
 
 export const AddressContext = createContext();

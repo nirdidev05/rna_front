@@ -13,16 +13,18 @@ const SearchBar = ({ onSearch }) => {
         if (query) {
             try {
                 // Example with OpenStreetMap Nominatim
-                const response = await axios.get(`https://nominatim.openstreetmap.org/search`, {
+                const response = await axios.get('https://nominatim.openstreetmap.org/search', {
                     params: {
                         q: query,
                         format: 'json',
-                        addressdetails: 1
-                    }
+                        addressdetails: 1,
+                    },
                 });
+                
                 const result = response.data[0];
-                if (result) {
-                    const coords = [result.lat, result.lon];
+                
+                if (result && result.lat && result.lon) {
+                    const coords = [parseFloat(result.lat), parseFloat(result.lon)];
                     onSearch(coords);
                 } else {
                     console.error('No results found');
@@ -55,4 +57,3 @@ const SearchBar = ({ onSearch }) => {
 };
 
 export default SearchBar;
-

@@ -1,35 +1,60 @@
-import React from 'react';
-import StatistiquesPieChart from '../components/StatistiquesPieChart';
+import React, { useContext } from 'react';
+import { StatsContext } from '../contexts/StatsContext';
 import '../styles/Statistiques.css';
+import Layout from '../components/Layout';
+import CommuneDropdown from '../components/DropDown';
+import CommuneBarChart from '../components/CommuneBarChart';
+import AddressBarChart from '../components/AddressBarChart';
+import ValidInvalidPieChart from '../components/ValidInvalidPieChart';
 
-const Statistiques = () => {
+const Statistics = () => {
+    const { communes, selectedCommune, getAggregatedStats } = useContext(StatsContext);
+
+    const displayStats = selectedCommune || getAggregatedStats();
+
     return (
-        <div className="statistiques-container">
-            <div className="search-bar">
-                <input type="text" placeholder="Hinted search text" />
-                <button>🔍</button>
-            </div>
-            <div className="content">
-                <div className="pie-chart">
-                    <StatistiquesPieChart />
+        <Layout>
+            <div className="scrollable-container">
+                <div className="dropdown">
+                    <CommuneDropdown />
                 </div>
-                <div className="cards">
-                    <div className="card">
-                        <h3>À l'étude</h3>
-                        <p>XXXXX</p>
+                <div className="statistics-container">
+                    <div className="card" style={{ backgroundColor: '#181442' }}>
+                        <div className="card-title" style={{ color: 'white' }}>À l'étude</div>
+                        <div className="card-number" style={{ color: 'white' }}>{displayStats.studyCount}</div>
+                        <div className="card-circle" style={{ borderColor: 'blue' }}></div>
                     </div>
-                    <div className="card">
-                        <h3>Les adresses non validées</h3>
-                        <p>XXXXX</p>
+                    <div className="card" style={{ backgroundColor: '#181442' }}>
+                        <div className="card-title" style={{ color: 'white' }}>Non validé</div>
+                        <div className="card-number" style={{ color: 'red' }}>{displayStats.invalidCount}</div>
+                        <div className="card-circle" style={{ borderColor: 'blue' }}></div>
                     </div>
-                    <div className="card">
-                        <h3>Les adresses enregistrées</h3>
-                        <p>XXXXX</p>
+                    <div className="card" style={{ backgroundColor: '#181442' }}>
+                        <div className="card-title" style={{ color: 'white' }}>Validé</div>
+                        <div className="card-number" style={{ color: 'green' }}>{displayStats.validCount}</div>
+                        <div className="card-circle" style={{ borderColor: 'blue' }}></div>
+                    </div>
+                    <div className="pie-chart-wrapper">
+                        <ValidInvalidPieChart />
+                    </div>
+                </div>
+                <div className="scroll-container">
+                    <div className="scroll-item">
+                        <div className="bar-chart-wrapper">
+                            <AddressBarChart />
+                        </div>
+                    </div>
+                </div>
+                <div className="scroll-container">
+                    <div className="scroll-item">
+                        <div className="bar-chart-wrapper">
+                            <CommuneBarChart data={communes} />
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </Layout>
     );
 };
 
-export default Statistiques;
+export default Statistics;

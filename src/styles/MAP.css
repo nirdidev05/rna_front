@@ -14,8 +14,6 @@
 }
 
 .menu-container {
-    width: 250px; /* Adjust to your menu width */
-    height: calc(100vh - 60px); /* Full height minus the header */
     position: fixed;
     left: 0;
     top: 60px; /* Position below the header */
@@ -26,9 +24,7 @@
     flex: 7;
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 60px); /* Full height minus the header */
     margin-left:192px; /* Adjust to the width of the menu */
-    margin-top:52px;
     width: calc(100% - 499px); /* Full width minus the width of the menu */
 
 }

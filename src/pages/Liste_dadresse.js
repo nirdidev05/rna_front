@@ -1,5 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { AddressContext } from '../contexts/AdresseContext.js';
 import '../styles/Liste_dadresse.css';
 import SearchBar from '../components/SearchBar.jsx';
@@ -7,7 +9,7 @@ import FilterDropdown from '../components/FilterDropdown.jsx';
 import Layout from '../components/Layout';
 
 const ListeDAdressesPage = () => {
-    const { refusedAddressesData } = useContext(AddressContext);
+    const { refusedAddressesData, setRefusedAddressesData } = useContext(AddressContext);
     const [selectedAddress, setSelectedAddress] = useState(null);
     const [searchTerm, setSearchTerm] = useState('');
     const [filterType, setFilterType] = useState('');
@@ -23,7 +25,6 @@ const ListeDAdressesPage = () => {
     // Sort addresses based on filter type
     const sortedAddresses = [...filteredAddresses].sort((a, b) => {
         if (filterType === 'dateDernierAjout') {
-            // Ensure the `dateDernierAjout` is defined and valid
             const dateA = new Date(a.dateDernierAjout);
             const dateB = new Date(b.dateDernierAjout);
             return dateB - dateA; // Sort from most recent to oldest
@@ -43,6 +44,15 @@ const ListeDAdressesPage = () => {
         setFilterType(filterType);
     };
 
+    const handleEditClick = (address) => {
+        navigate('/formulaire', { state: { address, rowIndex: refusedAddressesData.indexOf(address) } });
+    };
+
+    const handleDeleteClick = (address) => {
+        const updatedAddresses = refusedAddressesData.filter(a => a.numeroAdresse !== address.numeroAdresse);
+        setRefusedAddressesData(updatedAddresses);
+    };
+
     return (
         <Layout>
             <div className="liste-d-adresses-page">
@@ -51,10 +61,9 @@ const ListeDAdressesPage = () => {
                         searchTerm={searchTerm}
                         setSearchTerm={setSearchTerm}
                     />
-                   
                 </div>
                 <div className="top-container2">
-                <FilterDropdown onFilterChange={handleFilterChange} />
+                    <FilterDropdown onFilterChange={handleFilterChange} />
                 </div>
                 <div className="table-container">
                     <table>
@@ -64,7 +73,7 @@ const ListeDAdressesPage = () => {
                                 <th>Wilaya</th>
                                 <th>Commune</th>
                                 <th>Ajouter en</th>
-                                <th>Consulter</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -76,6 +85,12 @@ const ListeDAdressesPage = () => {
                                     <td>{address.ajouterEn || 'N/A'}</td>
                                     <td>
                                         <button onClick={() => handleConsultClick(address)}>Consulter</button>
+                                        <button onClick={() => handleEditClick(address)}>
+                                            <FontAwesomeIcon icon={faEdit} />
+                                        </button>
+                                        <button onClick={() => handleDeleteClick(address)}>
+                                            <FontAwesomeIcon icon={faTrash} />
+                                        </button>
                                     </td>
                                 </tr>
                             ))}
@@ -122,6 +137,3 @@ const ListeDAdressesPage = () => {
 };
 
 export default ListeDAdressesPage;
-
-
-
