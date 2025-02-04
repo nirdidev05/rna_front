@@ -1,1 +1,3 @@
-export default __webpack_public_path__ + "_/node_modules/leaflet/dist/images/marker-icon.png";
+version https://git-lfs.github.com/spec/v1
+oid sha256:dbcf0d74cc592f12c29f360cf411b145c9124b79ec09fbd76d1600a54e164e77
+size 94
